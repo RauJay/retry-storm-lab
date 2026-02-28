@@ -11,7 +11,6 @@ This lab demonstrates how retries without exponential backoff can cause cascadin
 ## What to observe
 - Latency spikes
 - Errors increase
-- Retries amplify DB load
 
 ## Fix
 Replace retries with exponential backoff and observe system stability.
