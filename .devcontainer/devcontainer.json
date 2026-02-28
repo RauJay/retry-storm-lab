@@ -2,7 +2,7 @@
   "name": "Retry Storm Lab",
   "dockerComposeFile": "docker-compose.yml",
   "service": "api",
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/workspace/retry-storm-lab",
   "postCreateCommand": "docker compose up -d",
   "customizations": {
     "vscode": {
