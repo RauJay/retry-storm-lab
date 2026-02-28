@@ -50,6 +50,11 @@ HTML = """
 def simulated_db_call():
     # 🔴 Injected latency (300ms)
     time.sleep(0.3)
+
+     # 40% failure rate
+    if random.random() < 0.4:
+        raise Exception("DB timeout")
+
     return "OK"
 
 @app.route("/")
