@@ -1,6 +1,6 @@
 {
   "name": "Retry Storm Lab",
-  "dockerComposeFile": "docker-compose.yml",
+  "dockerComposeFile": "../docker-compose.yml",
   "service": "api",
   "workspaceFolder": "/workspace/retry-storm-lab",
   "postCreateCommand": "docker compose up -d",
