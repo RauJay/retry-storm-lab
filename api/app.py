@@ -49,7 +49,7 @@ HTML = """
 """
 db_pool = threading.Semaphore(5)  # only 5 concurrent DB calls
 def simulated_db_call():
-    acquired = db_pool.acquire(timeout=0.1)
+    acquired = db_pool.acquire(timeout=0.05)
     if not acquired:
         raise Exception("DB pool exhausted")
 
