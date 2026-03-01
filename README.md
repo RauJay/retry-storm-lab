@@ -1,16 +1,36 @@
 # Retry Storm Lab
 
-This lab demonstrates how retries without exponential backoff can cause cascading failures.
+This lab demonstrates how **immediate retries under partial failure can cause cascading failure**
+and how **exponential backoff stabilizes the system**.
 
-## How to run
-1. Click **Code → Codespaces → Create Codespace**
-2. System boots automatically
-3. Run load:
+The system is fully runnable online using **GitHub Codespaces** and can be torn down with one click.
 
+---
 
-## What to observe
-- Latency spikes
-- Errors increase
+## 🧩 What this lab simulates
 
-## Fix
-Replace retries with exponential backoff and observe system stability.
+- A service calling a **slow and flaky dependency**
+- Immediate retries → **retry storm**
+- Load amplification → **cascading failure**
+- Exponential backoff → **stability**
+
+A live UI visualizes:
+- Requests/sec
+- Retries/sec
+- Average latency
+- System state (CASCADING FAILURE vs STABLE)
+
+---
+
+## 🚀 How to spin up the lab (online)
+
+### Option 1: GitHub Codespaces (recommended)
+
+1. Open this repository on GitHub
+2. Click **Code → Codespaces → Create Codespace**
+3. Wait for VS Code to open in the browser
+
+Once VS Code opens, start the system:
+
+```bash
+docker compose up --build -d
