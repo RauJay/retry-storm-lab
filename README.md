@@ -34,6 +34,7 @@ Once VS Code opens, start the system:
 
 ```bash
 docker compose up --build -d
+```bash
 
 Access UI
 /ui
