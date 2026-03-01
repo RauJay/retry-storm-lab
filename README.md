@@ -7,7 +7,7 @@ The system is fully runnable online using **GitHub Codespaces** and can be torn 
 
 ---
 
-## 🧩 What this lab simulates
+##  What this lab simulates
 
 - A service calling a **slow and flaky dependency**
 - Immediate retries → **retry storm**
@@ -22,7 +22,7 @@ A live UI visualizes:
 
 ---
 
-## 🚀 How to spin up the lab (online)
+## How to spin up the lab (online)
 
 ### Option 1: GitHub Codespaces (recommended)
 
