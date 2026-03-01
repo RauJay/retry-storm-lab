@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, render_template_string
 import time
 import threading
+import random
 
 app = Flask(__name__)
 
@@ -46,16 +47,21 @@ HTML = """
 
 <h1 style="color:{{ color }}">{{ state }}</h1>
 """
-
+db_pool = threading.Semaphore(5)  # only 5 concurrent DB calls
 def simulated_db_call():
-    # 🔴 Injected latency (300ms)
-    time.sleep(0.3)
+    acquired = db_pool.acquire(timeout=0.1)
+    if not acquired:
+        raise Exception("DB pool exhausted")
 
-     # 40% failure rate
-    if random.random() < 0.4:
-        raise Exception("DB timeout")
+    try:
+        time.sleep(0.3)
 
-    return "OK"
+        if random.random() < 0.4:
+            raise Exception("DB timeout")
+
+        return "OK"
+    finally:
+        db_pool.release()
 
 @app.route("/")
 def handler():
