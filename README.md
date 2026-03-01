@@ -36,6 +36,6 @@ Once VS Code opens in GitHub Codespaces, start the services:
 
 ```bash
 docker compose up --build -d
-
+---
 After the services start, open the Retry Storm UI in your browser:
 /ui
