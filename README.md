@@ -34,3 +34,19 @@ Once VS Code opens, start the system:
 
 ```bash
 docker compose up --build -d
+
+Access UI
+/ui
+###You should see the Retry Storm Visualizer page.
+
+## Simple continuous load
+Open a new terminal in Codespaces and run:
+```bash
+while true; do curl http://localhost:8080/; done
+
+## Controlled load using k6
+```bash
+docker run --rm \
+  --network=retry-storm-lab_default \
+  -v $(pwd)/k6:/scripts \
+  grafana/k6 run /scripts/load.js
