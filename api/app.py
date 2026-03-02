@@ -80,7 +80,7 @@ def handler():
                 metrics["retries"] += 1
 
             if use_backoff:
-                time.sleep(base_delay * (2 ** attempt))
+                time.sleep(base_delay * (10 ** attempt))
             # else: immediate retry → retry storm
 
     return "FAILED", 500
